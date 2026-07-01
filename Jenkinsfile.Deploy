@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages {
+        stage('Deploy') {
+            steps {
+                script {
+                    def shouldAbort = true // Replace with your condition
+                    if (shouldAbort) {
+                        currentBuild.result = 'ABORTED'
+                        error('Stopping the build early and marking as ABORTED.')
+                    }
+                }
+            }
+          }
+    }
+}
