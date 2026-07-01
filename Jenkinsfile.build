@@ -9,6 +9,7 @@ pipeline {
                         script {
                             def someCondition = true
                             if (someCondition) {
+                                currentBuild.result = 'FAILURE'
                                 error("Stopping the pipeline: Validation failed!")
                             }
                         }
