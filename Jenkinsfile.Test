@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('Test') {
+            steps {
+                 script {
+                    try {
+                        // Your test command here
+                    } catch (Exception e) {
+                        // Catches the failure and marks the build unstable
+                        unstable("Tests failed, marking build as UNSTABLE")
+                    }
+                }
+            }
+          }
+    }
+}
